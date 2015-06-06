@@ -27,7 +27,7 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.imagero.java.io;
+package com.smartg.java.io;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -42,9 +42,9 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.EnumSet;
 
 import com.imagero.java.util.Debug;
-import com.imagero.java.vfs.JFile;
-import com.imagero.java.vfs.VFile;
-import com.imagero.java.vfs.VFilenameFilter;
+import com.smartg.java.vfs.JFile;
+import com.smartg.java.vfs.VFile;
+import com.smartg.java.vfs.VFilenameFilter;
 
 /**
  * FileProcessor allows to process all files in given source directory and

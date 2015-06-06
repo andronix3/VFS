@@ -1,4 +1,4 @@
-package com.imagero.java.vfs;
+package com.smartg.java.vfs;
 
 import java.awt.Component;
 import java.awt.Font;
@@ -22,9 +22,9 @@ import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
-import com.imagero.java.io.DirectoryNode;
-import com.imagero.java.io.FileNode;
 import com.imagero.java.util.Debug;
+import com.smartg.java.io.DirectoryNode;
+import com.smartg.java.io.FileNode;
 import com.smartg.java.util.Stack;
 
 public class FileTree extends JTree {

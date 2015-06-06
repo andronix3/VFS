@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.imagero.java.vfs;
+package com.smartg.java.vfs;
 
 import java.util.ArrayList;
 import java.util.Collection;

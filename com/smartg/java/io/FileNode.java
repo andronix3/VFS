@@ -27,15 +27,15 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.imagero.java.io;
+package com.smartg.java.io;
 
 import java.util.Enumeration;
 
 import javax.swing.Icon;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import com.imagero.java.vfs.VFile;
-import com.imagero.java.vfs.VFilenameFilter;
+import com.smartg.java.vfs.VFile;
+import com.smartg.java.vfs.VFilenameFilter;
 
 /**
  * FileNode - create tree view of file system. Creation of children is deferred.

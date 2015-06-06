@@ -1,4 +1,4 @@
-package com.imagero.java.vfs;
+package com.smartg.java.vfs;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -18,7 +18,7 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.filechooser.FileSystemView;
 
-import com.imagero.java.vfs.Comparators.SortType;
+import com.smartg.java.vfs.Comparators.SortType;
 
 public class FileList extends JList<VFile> {
 

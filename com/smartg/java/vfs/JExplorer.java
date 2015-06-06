@@ -1,4 +1,4 @@
-package com.imagero.java.vfs;
+package com.smartg.java.vfs;
 
 import java.awt.BorderLayout;
 import java.awt.event.KeyAdapter;
@@ -12,7 +12,7 @@ import javax.swing.JSplitPane;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 
-import com.imagero.java.io.FileNode;
+import com.smartg.java.io.FileNode;
 
 public class JExplorer extends JPanel {
 

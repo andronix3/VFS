@@ -1,6 +1,6 @@
-package com.imagero.java.io;
+package com.smartg.java.io;
 
-import com.imagero.java.vfs.VFile;
+import com.smartg.java.vfs.VFile;
 
 /**
  * Same as FileNode, but leafs are ignored (not added as children)

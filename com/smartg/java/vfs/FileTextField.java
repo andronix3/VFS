@@ -1,4 +1,4 @@
-package com.imagero.java.vfs;
+package com.smartg.java.vfs;
 
 import java.io.File;
 

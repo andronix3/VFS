@@ -1,4 +1,4 @@
-package com.imagero.java.vfs;
+package com.smartg.java.vfs;
 
 /**
  * Filename filter for VFile(s)

@@ -1,4 +1,4 @@
-package com.imagero.java.vfs;
+package com.smartg.java.vfs;
 
 import java.awt.AWTEventMulticaster;
 import java.awt.event.ActionEvent;
@@ -7,10 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Executor;
 
-import com.imagero.java.vfs.Comparators.SortType;
-import com.imagero.java.vfs.FileList.VParentFile;
-import com.imagero.java.vfs.IComparator.Order;
 import com.smartg.java.util.ThreadManager;
+import com.smartg.java.vfs.Comparators.SortType;
+import com.smartg.java.vfs.FileList.VParentFile;
+import com.smartg.java.vfs.IComparator.Order;
 
 public class FileListModel extends SilentListModel<VFile> {
 
