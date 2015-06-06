@@ -8,7 +8,7 @@ public class Comparators {
 	ByName, ByDate, BySize
     }
 
-    static class ByDateComparator implements IComparator<VFile> {
+    public static class ByDateComparator implements IComparator<VFile> {
 	Calendar c0 = Calendar.getInstance();
 	Calendar c1 = Calendar.getInstance();
 
@@ -44,7 +44,7 @@ public class Comparators {
 	}
     }
 
-    static class ByNameComparator implements IComparator<VFile> {
+    public static class ByNameComparator implements IComparator<VFile> {
 
 	private Order order = Order.Ascending;
 
@@ -75,7 +75,7 @@ public class Comparators {
 	}
     }
 
-    static class BySizeComparator implements IComparator<VFile> {
+    public static class BySizeComparator implements IComparator<VFile> {
 
 	private Order order = Order.Ascending;
 

@@ -1,4 +1,4 @@
-package com.smartg.java.vfs;
+package com.smartg.swing;
 
 import java.awt.AWTEventMulticaster;
 import java.awt.event.ActionEvent;
@@ -9,8 +9,11 @@ import java.util.concurrent.Executor;
 
 import com.smartg.java.util.ThreadManager;
 import com.smartg.java.vfs.Comparators.SortType;
-import com.smartg.java.vfs.FileList.VParentFile;
+import com.smartg.java.vfs.IComparator;
 import com.smartg.java.vfs.IComparator.Order;
+import com.smartg.java.vfs.VFile;
+import com.smartg.java.vfs.VFilenameFilter;
+import com.smartg.swing.FileList.VParentFile;
 
 public class FileListModel extends SilentListModel<VFile> {
 
@@ -63,11 +66,11 @@ public class FileListModel extends SilentListModel<VFile> {
 	this.filenameFilter = filenameFilter;
     }
 
-    IComparator<VFile> getComparator() {
+    public IComparator<VFile> getComparator() {
 	return comparator;
     }
 
-    void setComparator(IComparator<VFile> comparator) {
+    public void setComparator(IComparator<VFile> comparator) {
 	this.comparator = comparator;
 	tm.execute(applyChanges);
     }
@@ -83,7 +86,7 @@ public class FileListModel extends SilentListModel<VFile> {
 
     public VFile getParent() {
 	if (parent != null) {
-	    return parent.file;
+	    return parent.getFile();
 	}
 	return null;
     }

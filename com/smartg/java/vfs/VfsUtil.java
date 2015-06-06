@@ -213,7 +213,7 @@ public class VfsUtil {
 	}
     }
 
-    static String getProtocol(VFile file, String p) {
+    public static String getProtocol(VFile file, String p) {
 	VFile parentFile = file.getParentFile();
 	String protocolName = file.getProtocolName();
 	if (parentFile == null) {

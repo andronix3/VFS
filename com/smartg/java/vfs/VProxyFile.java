@@ -17,7 +17,11 @@ import javax.swing.Icon;
 public abstract class VProxyFile implements VFile {
 
 
-    final VFile file;
+    private final VFile file;
+
+    public VFile getFile() {
+        return file;
+    }
 
     public Enumeration<VFile> files() {
 	return file.files();

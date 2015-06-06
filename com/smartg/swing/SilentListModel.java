@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.smartg.java.vfs;
+package com.smartg.swing;
 
 import java.util.ArrayList;
 import java.util.Collection;

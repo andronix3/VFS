@@ -1,4 +1,4 @@
-package com.smartg.java.vfs;
+package com.smartg.swing;
 
 import java.awt.Color;
 import java.awt.FontMetrics;
@@ -7,6 +7,9 @@ import java.awt.Graphics2D;
 import java.io.File;
 
 import javax.swing.JLabel;
+
+import com.smartg.java.vfs.VFile;
+import com.smartg.java.vfs.VfsUtil;
 
 public class UrlLabel extends JLabel {
 
@@ -65,7 +68,7 @@ public class UrlLabel extends JLabel {
 	return file;
     }
 
-    protected void setFile(VFile file) {
+    public void setFile(VFile file) {
 	this.file = file;
 	if (file != null) {
 	    String protocol = VfsUtil.getProtocol(file, "");

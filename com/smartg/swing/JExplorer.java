@@ -1,4 +1,4 @@
-package com.smartg.java.vfs;
+package com.smartg.swing;
 
 import java.awt.BorderLayout;
 import java.awt.event.KeyAdapter;
@@ -13,6 +13,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 
 import com.smartg.java.io.FileNode;
+import com.smartg.java.vfs.VFile;
 
 public class JExplorer extends JPanel {
 

@@ -1,4 +1,4 @@
-package com.smartg.java.vfs;
+package com.smartg.swing;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -18,7 +18,12 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.filechooser.FileSystemView;
 
+import com.smartg.java.vfs.Comparators;
 import com.smartg.java.vfs.Comparators.SortType;
+import com.smartg.java.vfs.IComparator;
+import com.smartg.java.vfs.VFile;
+import com.smartg.java.vfs.VFilenameFilter;
+import com.smartg.java.vfs.VProxyFile;
 
 public class FileList extends JList<VFile> {
 
@@ -320,8 +325,8 @@ public class FileList extends JList<VFile> {
 	model.setFilenameFilter(filenameFilter);
     }
 
-    static class VParentFile extends VProxyFile {
-	protected VParentFile(VFile file) {
+    public static class VParentFile extends VProxyFile {
+	public VParentFile(VFile file) {
 	    super(file);
 	}
 

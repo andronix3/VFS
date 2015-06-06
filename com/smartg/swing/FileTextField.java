@@ -1,10 +1,13 @@
-package com.smartg.java.vfs;
+package com.smartg.swing;
 
 import java.io.File;
 
 import javax.swing.JFormattedTextField;
 import javax.swing.text.NavigationFilter;
 import javax.swing.text.Position.Bias;
+
+import com.smartg.java.vfs.VFile;
+import com.smartg.java.vfs.VfsUtil;
 
 public class FileTextField extends JFormattedTextField {
 

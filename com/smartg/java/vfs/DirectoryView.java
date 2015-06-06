@@ -52,7 +52,7 @@ public class DirectoryView extends VProxyFile implements VFile {
 	}
 	VFile[] files = new VFile[list.length];
 	for (int i = 0; i < files.length; i++) {
-	    files[i] = file.get(list[i]);
+	    files[i] = getFile().get(list[i]);
 	}
 	return files;
     }

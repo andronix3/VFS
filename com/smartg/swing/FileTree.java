@@ -1,4 +1,4 @@
-package com.smartg.java.vfs;
+package com.smartg.swing;
 
 import java.awt.Component;
 import java.awt.Font;
@@ -26,6 +26,7 @@ import com.imagero.java.util.Debug;
 import com.smartg.java.io.DirectoryNode;
 import com.smartg.java.io.FileNode;
 import com.smartg.java.util.Stack;
+import com.smartg.java.vfs.VFile;
 
 public class FileTree extends JTree {
 
