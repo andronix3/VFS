@@ -43,7 +43,7 @@ import javax.swing.Icon;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 
-import com.smartg.java.util.ArrayEnumeration;
+import com.smartg.java.util.ArrayIterator;
 
 /**
  * VFile implementation for FTP (File Transfer Protocol).
@@ -380,10 +380,10 @@ public class FtpFile implements VFile {
     }
 
     public Enumeration<VFile> files() {
-	return new ArrayEnumeration<VFile>(listFiles());
+	return new ArrayIterator<VFile>(listFiles());
     }
 
     public Enumeration<String> names() throws IOException {
-	return new ArrayEnumeration<String>(list());
+	return new ArrayIterator<String>(list());
     }
 }

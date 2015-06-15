@@ -41,7 +41,7 @@ import java.util.Hashtable;
 import javax.swing.Icon;
 import javax.swing.filechooser.FileSystemView;
 
-import com.smartg.java.util.ArrayEnumeration;
+import com.smartg.java.util.ArrayIterator;
 import com.smartg.java.util.SafeIterator;
 
 public class VZipFileEntry implements VFile {
@@ -293,10 +293,10 @@ public class VZipFileEntry implements VFile {
     }
     
     public Enumeration<VFile> files() {
-	return new ArrayEnumeration<VFile>(listFiles());
+	return new ArrayIterator<VFile>(listFiles());
     }
 
     public Enumeration<String> names() throws IOException {
-	return new ArrayEnumeration<String>(list());
+	return new ArrayIterator<String>(list());
     }
 }

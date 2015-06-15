@@ -43,7 +43,7 @@ import java.util.zip.ZipInputStream;
 
 import javax.swing.Icon;
 
-import com.smartg.java.util.ArrayEnumeration;
+import com.smartg.java.util.ArrayIterator;
 import com.smartg.java.util.SafeIterator;
 
 public class VZipFile implements VFile {
@@ -336,10 +336,10 @@ public class VZipFile implements VFile {
     }
     
     public Enumeration<VFile> files() {
-	return new ArrayEnumeration<VFile>(listFiles());
+	return new ArrayIterator<VFile>(listFiles());
     }
 
     public Enumeration<String> names() throws IOException {
-	return new ArrayEnumeration<String>(list());
+	return new ArrayIterator<String>(list());
     }
 }

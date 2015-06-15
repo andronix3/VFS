@@ -39,7 +39,7 @@ import java.util.Enumeration;
 
 import javax.swing.Icon;
 
-import com.smartg.java.util.ArrayEnumeration;
+import com.smartg.java.util.ArrayIterator;
 import com.smartg.java.util.SafeIterator;
 
 public class FDirectory implements VFile {
@@ -214,7 +214,7 @@ public class FDirectory implements VFile {
 
     public Enumeration<String> names() throws IOException {
 //	return new SafeEnumerationWrapper<String>(Arrays.asList(list()).iterator());
-	return new ArrayEnumeration<String>(list());
+	return new ArrayIterator<String>(list());
     }
 
     public boolean rename(String name) {
