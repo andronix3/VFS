@@ -211,7 +211,9 @@ public class SilentListModel<E> extends AbstractListModel<E> {
     public void clear() {
 	int size = list.size() -1;
 	list.clear();
-	fireIntervalRemoved(this, 0, size);
+	if(size > 0) {
+	    fireIntervalRemoved(this, 0, size);
+	}
     }
 
     
