@@ -142,11 +142,7 @@ public class SilentListModel<E> extends AbstractListModel<E> {
 		} else {
 		    SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-			    try {
-				SilentListModel.super.fireIntervalRemoved(source, index0, index1);
-			    } catch (Throwable t) {
-				//ignore
-			    }
+			    SilentListModel.super.fireIntervalRemoved(source, index0, index1);
 			}
 		    });
 		}
