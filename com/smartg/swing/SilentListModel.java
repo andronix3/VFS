@@ -48,178 +48,193 @@ import javax.swing.SwingUtilities;
  */
 public class SilentListModel<E> extends AbstractListModel<E> {
 
-    private static final long serialVersionUID = -203823341416077219L;
+	private static final long serialVersionUID = -203823341416077219L;
 
-    private ArrayList<E> list = new ArrayList<E>();
+	private ArrayList<E> list = new ArrayList<>();
 
-    boolean silent;
-    int i0, i1;
+	boolean silent;
+	int i0, i1;
 
-    public boolean isSilent() {
-	return silent;
-    }
-
-    public void addElement(E o) {
-	int index = list.size();
-	list.add(o);
-	fireIntervalAdded(this, index, index);
-    }
-
-    public void setSilent(boolean silent) {
-	this.silent = silent;
-	// System.out.println("silent " + silent);
-	if (silent) {
-	    i0 = Integer.MAX_VALUE;
-	    i1 = 0;
+	public boolean isSilent() {
+		return silent;
 	}
-    }
 
-    public void send() {
-	if (i0 != Integer.MAX_VALUE) {
-	    super.fireContentsChanged(this, i0, i1);
+	public void addElement(E o) {
+		int index = list.size();
+		list.add(o);
+		fireIntervalAdded(this, index, index);
 	}
-	// System.out.println("refresh " + i0 + " " + i1);
-	i0 = Integer.MAX_VALUE;
-	i1 = 0;
-    }
 
-    @Override
-    protected void fireContentsChanged(final Object source, final int index0, final int index1) {
-
-	int minIndex = Math.min(index0, index1);
-	int maxIndex = Math.max(index0, index1);
-
-	if (!silent) {
-	    if (SwingUtilities.isEventDispatchThread()) {
-		super.fireContentsChanged(source, index0, index1);
-	    } else {
-		SwingUtilities.invokeLater(new Runnable() {
-		    public void run() {
-			SilentListModel.super.fireContentsChanged(source, index0, index1);
-		    }
-		});
-
-	    }
-	} else {
-	    i0 = Math.min(minIndex, i0);
-	    i1 = Math.max(maxIndex, i1);
-	}
-    }
-
-    @Override
-    protected void fireIntervalAdded(final Object source, final int index0, final int index1) {
-	if (!silent) {
-	    if (SwingUtilities.isEventDispatchThread()) {
-		super.fireIntervalAdded(source, index0, index1);
-	    } else {
-		SwingUtilities.invokeLater(new Runnable() {
-		    public void run() {
-			SilentListModel.super.fireIntervalAdded(source, index0, index1);
-		    }
-		});
-	    }
-	} else {
-	    int minIndex = Math.min(index0, index1);
-	    int maxIndex = Math.max(index0, index1);
-
-	    if (i0 > minIndex) {
-		i0 = minIndex;
-	    }
-	    if (i1 < maxIndex) {
-		i1 = maxIndex;
-	    } else {
-		i1 += maxIndex - minIndex + 1;
-	    }
-	}
-    }
-
-    @Override
-    protected void fireIntervalRemoved(final Object source, final int index0, final int index1) {
-	if (!silent) {
-	    if (index0 != index1) {
-		if (SwingUtilities.isEventDispatchThread()) {
-		    super.fireIntervalRemoved(source, index0, index1);
-		} else {
-		    SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-			    SilentListModel.super.fireIntervalRemoved(source, index0, index1);
-			}
-		    });
+	public void setSilent(boolean silent) {
+		this.silent = silent;
+		// System.out.println("silent " + silent);
+		if (silent) {
+			i0 = Integer.MAX_VALUE;
+			i1 = 0;
 		}
-	    }
-	} else {
-	    if (i0 > index0) {
-		i0 = index0;
-	    }
-	    if (i1 < index1) {
-		i1 = index1;
-	    } else {
-		i1 -= index1 - index0 + 1;
-	    }
-	    if (i0 > i1) {
-		i0 = i1;
-	    }
 	}
-    }
 
-    public E getElementAt(int index) {
-	return list.get(index);
-    }
+	public void send() {
+		if (i0 != Integer.MAX_VALUE) {
+			super.fireContentsChanged(this, i0, i1);
+		}
+		// System.out.println("refresh " + i0 + " " + i1);
+		i0 = Integer.MAX_VALUE;
+		i1 = 0;
+	}
 
-    public int getSize() {
-	return list.size();
-    }
+	@Override
+	protected void fireContentsChanged(final Object source, final int index0, final int index1) {
 
-    public void add(int index, E element) {
-	list.add(index, element);
-	fireIntervalAdded(this, index, index);
-    }
+		int minIndex = Math.min(index0, index1);
+		int maxIndex = Math.max(index0, index1);
 
-    /**
-     * Clear this model first and than add elements from given Collection to it.
-     * 
-     * @param c
-     */
-    public void set(Collection<E> c) {
-	list.clear();
-	list.addAll(c);
-	int newSize = list.size();
+		if (!silent) {
+			if (SwingUtilities.isEventDispatchThread()) {
+				super.fireContentsChanged(source, index0, index1);
+			} else {
+				SwingUtilities.invokeLater(new Runnable() {
+					@Override
+					public void run() {
+						SilentListModel.super.fireContentsChanged(source, index0, index1);
+					}
+				});
 
-	fireContentsChanged(this, 0, newSize);
-    }
+			}
+		} else {
+			i0 = Math.min(minIndex, i0);
+			i1 = Math.max(maxIndex, i1);
+		}
+	}
 
-    /**
-     * Add elements from given Collection to this model
-     * 
-     * @param c
-     */
-    public void add(Collection<E> c) {
-	list.addAll(c);
-	int newSize = list.size();
+	@Override
+	protected void fireIntervalAdded(final Object source, final int index0, final int index1) {
+		if (!silent) {
+			if (SwingUtilities.isEventDispatchThread()) {
+				super.fireIntervalAdded(source, index0, index1);
+			} else {
+				SwingUtilities.invokeLater(new Runnable() {
+					@Override
+					public void run() {
+						SilentListModel.super.fireIntervalAdded(source, index0, index1);
+					}
+				});
+			}
+		} else {
+			int minIndex = Math.min(index0, index1);
+			int maxIndex = Math.max(index0, index1);
 
-	fireContentsChanged(this, 0, newSize);
-    }
+			if (i0 > minIndex) {
+				i0 = minIndex;
+			}
+			if (i1 < maxIndex) {
+				i1 = maxIndex;
+			} else {
+				i1 += maxIndex - minIndex + 1;
+			}
+		}
+	}
 
-    /**
-     * Remove all elements contained in given Collection from this model.
-     * 
-     * @param c
-     *            Collection
-     */
-    public void remove(Collection<E> c) {
-	list.removeAll(c);
-	int newSize = list.size();
+	@Override
+	protected void fireIntervalRemoved(final Object source, final int index0, final int index1) {
+		if (!silent) {
+			if (index0 != index1) {
+				if (SwingUtilities.isEventDispatchThread()) {
+					super.fireIntervalRemoved(source, index0, index1);
+				} else {
+					SwingUtilities.invokeLater(new Runnable() {
+						@Override
+						public void run() {
+							try {
+								SilentListModel.super.fireIntervalRemoved(source, index0, index1);
+							}
+							catch(Throwable t) {
+								//ignore
+							}
+						}
+					});
+				}
+			}
+		} else {
+			if (i0 > index0) {
+				i0 = index0;
+			}
+			if (i1 < index1) {
+				i1 = index1;
+			} else {
+				i1 -= index1 - index0 + 1;
+			}
+			if (i0 > i1) {
+				i0 = i1;
+			}
+		}
+	}
 
-	fireContentsChanged(this, 0, newSize);
-    }
+	@Override
+	public E getElementAt(int index) {
+		return list.get(index);
+	}
 
-    public void clear() {
-	int size = list.size() - 1;
-	list.clear();
-	fireIntervalRemoved(this, 0, size);
-    }
+	@Override
+	public int getSize() {
+		return list.size();
+	}
 
-    public <T> T[] toArray(T[] a) {
-	return list.toArray(a);
-    }
+	public void add(int index, E element) {
+		list.add(index, element);
+		fireIntervalAdded(this, index, index);
+	}
+
+	/**
+	 * Clear this model first and than add elements from given Collection to it.
+	 * 
+	 * @param c
+	 */
+	public void set(Collection<E> c) {
+		list.clear();
+		list.addAll(c);
+		int newSize = list.size();
+
+		fireContentsChanged(this, 0, newSize);
+	}
+
+	/**
+	 * Add elements from given Collection to this model
+	 * 
+	 * @param c
+	 */
+	public void add(Collection<E> c) {
+		list.addAll(c);
+		int newSize = list.size();
+
+		fireContentsChanged(this, 0, newSize);
+	}
+
+	/**
+	 * Remove all elements contained in given Collection from this model.
+	 * 
+	 * @param c
+	 *            Collection
+	 */
+	public void remove(Collection<E> c) {
+		list.removeAll(c);
+		int newSize = list.size();
+
+		fireContentsChanged(this, 0, newSize);
+	}
+
+	public void clear() {
+		int size = list.size() - 1;
+		list.clear();
+		try {
+			fireIntervalRemoved(this, 0, size);
+		}
+		catch(Throwable t) {
+			//ignore
+		}
+	}
+
+	public <T> T[] toArray(T[] a) {
+		return list.toArray(a);
+	}
 }

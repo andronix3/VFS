@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/JavaUtils"/>
+	<classpathentry kind="lib" path="C:/OneDrive/jars/commons-net-3.3.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/UIO"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
