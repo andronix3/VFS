@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/JavaUtils"/>
-	<classpathentry kind="lib" path="C:/OneDrive/jars/commons-net-3.3.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/UIO"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/JavaUtils"/>
+	<classpathentry kind="lib" path="E:/Benutzer/User/Dokumente/GitHub/LSLib/commons-net-3.3.jar"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/UIO"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
